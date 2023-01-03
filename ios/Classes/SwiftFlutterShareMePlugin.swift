@@ -98,7 +98,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
         {
             if(imageUrl==""){
                 //mean user did not pass image url  so just got with text message
-                result("Sucess");
+                result("success");
                 UIApplication.shared.openURL(whatsAppURL! as URL)
                 
             }
@@ -132,7 +132,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
                     activityVC.excludedActivityTypes = [UIActivity.ActivityType.airDrop,UIActivity.ActivityType.message, UIActivity.ActivityType.mail,UIActivity.ActivityType.postToTwitter,UIActivity.ActivityType.postToWeibo,UIActivity.ActivityType.print,UIActivity.ActivityType.openInIBooks,UIActivity.ActivityType.postToFlickr,UIActivity.ActivityType.postToFacebook,UIActivity.ActivityType.addToReadingList,UIActivity.ActivityType.copyToPasteboard,UIActivity.ActivityType.postToFacebook]
                     
                     viewController!.present(activityVC, animated: true, completion: nil)
-                    result("Sucess");
+                    result("success");
                     
                 }catch{
                     print(error)
@@ -159,7 +159,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
         if UIApplication.shared.canOpenURL(whatsAppURL! as URL)
         {
             UIApplication.shared.openURL(whatsAppURL! as URL)
-            result("Sucess");
+            result("success");
         }else{
             result(FlutterError(code: "Not found", message: "WhatsApp is not found", details: "WhatsApp not intalled or Check url scheme."));
         }
@@ -173,7 +173,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
         let whatsAppURL  = NSURL(string: whatsApp.addingPercentEncoding(withAllowedCharacters: characterSet)!)
         if UIApplication.shared.canOpenURL(whatsAppURL! as URL)
         {
-            result("Sucess");
+            result("success");
             UIApplication.shared.openURL(whatsAppURL! as URL)
         }
         else
@@ -195,7 +195,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
         let shareDialog = ShareDialog(viewController: viewController, content: shareContent, delegate: self)
         shareDialog.mode = .automatic
         shareDialog.show()
-        result("Sucess")
+        result("success")
         
     }
     
@@ -218,7 +218,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
         do {
             if UIApplication.shared.canOpenURL(urlschme! as URL){
                 UIApplication.shared.openURL(urlschme!)
-                result("Sucess")
+                result("success")
             }else{
                 result(FlutterError(code: "Not found", message: "Twitter is not found", details: "Twitter not intalled or Check url scheme."));
                 
@@ -236,7 +236,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
         let telegramURL  = NSURL(string: telegram.addingPercentEncoding(withAllowedCharacters: characterSet)!)
         if UIApplication.shared.canOpenURL(telegramURL! as URL)
         {
-            result("Sucess");
+            result("success");
             UIApplication.shared.openURL(telegramURL! as URL)
         }
         else
@@ -265,7 +265,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
             }
         }
         viewController!.present(activityVC, animated: true, completion: nil)
-        result("Sucess");
+        result("success");
         
         
     }
@@ -305,7 +305,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
                                 UIApplication.shared.openURL(urlForRedirect as URL)
                             }
                         }
-                        self.result?("Success")
+                        self.result?("success")
                     }
                 } else{
                     self.result?("Instagram app is not installed on your device")
@@ -319,7 +319,7 @@ public class SwiftFlutterShareMePlugin: NSObject, FlutterPlugin, SharingDelegate
     
     //Facebook delegate methods
     public func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
-        print("Share: Success")
+        print("Share: success")
         
     }
     
